@@ -13,7 +13,7 @@ def min(*args):
     return min
 
 
-def try_with_multiproc(num_of_proc):
+def multiproc(num_of_proc):
     if __name__ == '__main__':
         start_time = time.time()
         with Pool(num_of_proc) as p:
@@ -26,7 +26,7 @@ if __name__ == '__main__':
     global_df = pd.read_csv("data.csv", sep=',', encoding="cp1251")
     # print(global_df.info)
     a = []
-    for i in range(1, 12):
-        a.append(try_with_multiproc(i))
+    for i in range(1, 24):
+        a.append(multiproc(i))
     plt.plot(a)
     plt.show()
